@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="dsView">
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Schema Demo (View)</title>
+    <!-- using Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- using Angular 1.6.4 -->
+    <script src="angular.min.js" charset="utf-8"></script>
+    <!-- the JS code for this example -->
+    <script src="frontend.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <div class="container" ng-controller="dsViewController">
+
+      <h1>Dynamic Schema Demo (View)</h1>
+
+      <p>
+        <b>Raw JS array:</b><br>
+        {{ booksStr }}
+      </p>
+      <br><br>
+
+      <select name="user-picker" ng-model="userType">
+        <option value="student" selected>student</option>
+        <option value="admin">admin</option>
+      </select>
+      <br><br>
+
+      <table ng-show="userType == 'student'" class="table">
+        <thead>
+          <th>Title</th>
+          <th>Edition</th>
+          <th>Author</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="b in books">
+            <td>{{ b.title }}</td>
+            <td>{{ b.edition }}</td>
+            <td>{{ b.author }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table ng-show="userType == 'admin'" class="table">
+        <thead>
+          <th>ISBN</th>
+          <th>Internal ID</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="b in books">
+            <td>{{ b.isbn }}</td>
+            <td>{{ b.internalId }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </body>
+</html>

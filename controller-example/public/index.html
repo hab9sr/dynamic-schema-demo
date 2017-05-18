@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="dsController">
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Schema Demo (Controller)</title>
+    <!-- using Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <!-- using Angular 1.6.4 -->
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="angular-resource.min.js" charset="utf-8"></script>
+    <!-- the JS code for this example -->
+    <script src="frontend.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <div class="container" ng-controller="dsControllerController">
+
+      <h1>Dynamic Schema Demo (Controller)</h1>
+
+      <select name="vehicle-picker" ng-model="vType">
+        <option value="car" selected>car</option>
+        <option value="truck">truck</option>
+      </select>
+      <br><br>
+
+      <form ng-submit="createVehicle(car)" ng-show="vType == 'car'">
+        <label for="make">Make</label>
+        <input type="text" ng-model="car.make"><br>
+        <label for="model">Model</label>
+        <input type="text" ng-model="car.model"><br>
+        <label for="color">Color</label>
+        <input type="text" ng-model="car.color"><br>
+        <label for="numSeats"># of seats</label>
+        <input type="number" ng-model="car.numSeats"><br>
+        <input type="submit" value="Create car">
+      </form>
+
+      <form ng-submit="createVehicle(truck)" ng-show="vType == 'truck'">
+        <label for="make">Make</label>
+        <input type="text" ng-model="truck.make"><br>
+        <label for="sleeperCab">Sleeper cab?</label>
+        <select name="sleeperCab" ng-model="truck.sleeperCab">
+          <option value="true">Yes</option>
+          <option value="false" selected>No</option>
+        </select><br>
+        <label for="numAxles"># of axles</label>
+        <input type="text" ng-model="truck.numAxles"><br>
+        <label for="horsepower">Horsepower</label>
+        <input type="number" ng-model="truck.horsepower"><br>
+        <input type="submit" value="Create truck">
+      </form>
+
+      <h3>Vehicles you've created</h3>
+
+      <ul>
+        <ol ng-repeat="v in vehiclesStrArr">{{ v }}</ol>
+      </ul>
+
+    </div>
+
+  </body>
+</html>
