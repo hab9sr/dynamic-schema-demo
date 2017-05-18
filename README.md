@@ -1,6 +1,6 @@
 # Dynamic Schema Demo
 
-Example code from a blog post [here](http://hudsonburgess.com/2017-05-18-mean-dynamic-schemas.html). Go check it out!
+Example code from a blog post [here](http://hudsonburgess.com/2017/05/18/mean-dynamic-schemas.html). Go check it out!
 
 ## Setup
 
